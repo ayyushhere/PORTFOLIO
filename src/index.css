@@ -1,0 +1,144 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 260 84% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 260 32% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 6% 20%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 12 89% 57%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 260 84% 60%;
+
+    --radius: 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    image-rendering: pixelated;
+  }
+}
+
+@layer components {
+  .pixel-corners {
+    clip-path: polygon(
+      0% 4px, 4px 4px, 4px 0%, calc(100% - 4px) 0%, calc(100% - 4px) 4px, 100% 4px, 
+      100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 
+      4px calc(100% - 4px), 0% calc(100% - 4px)
+    );
+  }
+  
+  .pixel-border {
+    box-shadow: 
+      inset -4px -4px 0 0 rgba(0,0,0,0.3),
+      inset 4px 4px 0 0 rgba(255,255,255,0.3);
+  }
+  
+  .pixel-shadow {
+    box-shadow: 
+      4px 4px 0px rgba(0,0,0,0.5);
+  }
+  
+  .pixel-border-inset {
+    box-shadow: 
+      inset 4px 4px 0 0 rgba(0,0,0,0.3),
+      inset -4px -4px 0 0 rgba(255,255,255,0.3);
+  }
+
+  .pixel-bg-pattern {
+    background: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%),
+                linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%);
+    background-size: 8px 8px;
+    background-position: 0 0, 4px 4px;
+  }
+  
+  .pixel-hover {
+    transition: all 0.2s steps(5);
+  }
+  
+  .pixel-hover:hover {
+    transform: translateY(-4px);
+  }
+
+  /* New colorful glow effects */
+  .glow-cyan {
+    box-shadow: 0 0 15px 2px rgba(34, 211, 238, 0.5);
+  }
+
+  .glow-pink {
+    box-shadow: 0 0 15px 2px rgba(236, 72, 153, 0.5);
+  }
+
+  .glow-yellow {
+    box-shadow: 0 0 15px 2px rgba(234, 179, 8, 0.5);
+  }
+}
+
+/* New colorful keyframe animations */
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255,255,255,0.8),
+                0 0 20px rgba(255,255,255,0.8),
+                0 0 30px rgba(255,49,200,0.8),
+                0 0 40px rgba(255,49,200,0.5),
+                0 0 50px rgba(255,49,200,0.3);
+  }
+  50% {
+    text-shadow: 0 0 5px rgba(255,255,255,0.8),
+                0 0 10px rgba(255,255,255,0.8),
+                0 0 15px rgba(255,49,200,0.8),
+                0 0 20px rgba(255,49,200,0.5),
+                0 0 25px rgba(255,49,200,0.3);
+  }
+}
+
+@keyframes rainbow-shift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+.rainbow-animated {
+  animation: rainbow-shift 10s infinite linear;
+}
+
+.neon-text {
+  animation: neon-pulse 2s infinite;
+}
