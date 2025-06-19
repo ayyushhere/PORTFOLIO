@@ -23,20 +23,24 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-retro-black py-2' : 'py-6 bg-transparent'
+      isScrolled ? 'bg-retro-black/90 backdrop-blur-sm py-2 pixel-shadow' : 'py-6 bg-transparent'
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="font-pixel text-xl text-retro-white">AYUSH.<span className="text-retro-primary">DEV</span></a>
+        <a href="#home" className="font-pixel text-xl text-retro-white group">
+          AYUSH.<span className="text-retro-primary group-hover:rainbow-animated">DEV</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
+          {['Home', 'About', 'Skills', 'Interactive', 'Projects', 'Contact'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`}
-              className="font-pixel text-xs text-retro-white hover:text-retro-primary transition-all duration-200 pixel-hover"
+              className="font-pixel text-xs text-retro-white hover:text-retro-primary transition-all duration-200 pixel-hover relative group"
             >
               {item}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </div>
@@ -61,14 +65,15 @@ const Navbar = () => {
         mobileMenuOpen ? 'max-h-screen py-4 opacity-100' : 'max-h-0 overflow-hidden opacity-0'
       }`}>
         <div className="container mx-auto px-4 flex flex-col space-y-4">
-          {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
+          {['Home', 'About', 'Skills', 'Interactive', 'Projects', 'Contact'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`}
-              className="font-pixel text-xs text-retro-white hover:text-retro-primary transition-all duration-200 pixel-hover block py-2"
+              className="font-pixel text-xs text-retro-white hover:text-retro-primary transition-all duration-200 pixel-hover block py-2 relative group"
               onClick={() => setMobileMenuOpen(false)}
             >
               {item}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </div>

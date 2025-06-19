@@ -1,0 +1,59 @@
+/* RotatingCube component styles */
+
+.cube-perspective {
+  perspective: 800px;
+}
+
+.cube-container {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.cube-smooth-transition {
+  transition: transform 0.1s ease-out;
+}
+
+.cube-no-transition {
+  transition: none;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grabbing {
+  cursor: grabbing;
+}
+
+/* Face transforms */
+.face-transform-front {
+  transform: translateZ(var(--cube-size-half));
+}
+
+.face-transform-back {
+  transform: rotateY(180deg) translateZ(var(--cube-size-half));
+}
+
+.face-transform-left {
+  transform: rotateY(-90deg) translateZ(var(--cube-size-half));
+}
+
+.face-transform-right {
+  transform: rotateY(90deg) translateZ(var(--cube-size-half));
+}
+
+.face-transform-top {
+  transform: rotateX(90deg) translateZ(var(--cube-size-half));
+}
+
+.face-transform-bottom {
+  transform: rotateX(-90deg) translateZ(var(--cube-size-half));
+}
